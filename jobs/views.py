@@ -7,10 +7,7 @@ load_dotenv()
 
 
 def home(request):
-    upcoming = _get_upcoming()
-    earnings = upcoming['earnings']
-    phases = upcoming['phases']
-    return render(request, 'jobs/home.html', {'earnings': earnings})
+    return render(request, 'jobs/home.html')
 
 
 def earnings(request):
@@ -22,7 +19,7 @@ def earnings(request):
 def phases(request):
     upcoming = _get_upcoming()
     phases = upcoming['phases']
-    return render(request, 'jobs/earnings.html', {'phases': phases})
+    return render(request, 'jobs/phases.html', {'phases': phases})
 
 
 def aboutme(request):
