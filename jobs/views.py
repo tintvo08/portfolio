@@ -25,6 +25,10 @@ def phases(request):
     return render(request, 'jobs/earnings.html', {'phases': phases})
 
 
+def aboutme(request):
+    return render(request, 'jobs/aboutme.html')
+
+
 def _get_upcoming():
     headers = {'api-key': os.getenv("TRADE_API_KEY")}
     resp = requests.get('https://t-trade-api.herokuapp.com/t_trade/upcoming', headers=headers)
