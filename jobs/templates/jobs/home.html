@@ -53,16 +53,17 @@
     </head>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Tin Vo</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Tin Vo</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-              <a class="nav-link" href="#">Twitter</a>
-              <a class="nav-link" href="#">Resume</a>
-              <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="#">Earnings</a>
+                <a class="nav-link" href="#">Phases</a>
+                <a class="nav-link" href="#">IPO</a>
+                <a class="nav-link" href="#">About Me</a>
             </div>
           </div>
         </nav>
@@ -72,36 +73,43 @@
       <section class="jumbotron text-center">
         <div class="container">
           <h1>Hi, I'm Tin</h1>
-          <p class="lead text-muted">Hey, My name is Tin and I love to make Django websites</p>
+          <p class="lead text-muted">Welcome To My Trading Page</p>
           <p>
             <a href="mailto:tintvo08@gmail.com" class="btn btn-primary my-2">Email Me</a>
           </p>
         </div>
       </section>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-              {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ job.image.url }}">
-                <div class="card-body">
-                  <p class="card-text text-center">{{ job.summary }}</p>
-                </div>
-              </div>
-            </div>
-              {% endfor %}
-          </div>
+      <div class="album py-5">
+        <div class="container bg-dark">
+            <h1 class="text-white text-center"> EARNINGS </h1>
+            <table class="table table-bordered table-dark">
+                <thead>
+                <tr>
+                  <th scope="col" colspan="2">Dates</th>
+                  <th scope="col" colspan="4">Stocks</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for dates, stocks in earnings.items %}
+                <tr>
+                    <td scope="col" colspan="2">{{ dates }}</td>
+                    <td scope="row">
+                    {% for stock in stocks %}
+                        {{ stock }} <br>
+                    {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
       </div>
     </main>
 
-    <footer class="text-muted">
-      <div class="container text-center">
-          <p> CopyRight Tin Vo {% now "Y" %}</p>
-      </div>
+    <footer class="footer fixed-bottom container text-right">
+            <hr>
+            <p>&copy; Tin Vo</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
