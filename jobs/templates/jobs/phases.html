@@ -6,19 +6,25 @@
     <table class="table table-bordered table-dark">
     <thead>
     <tr>
-      <th scope="col" colspan="2">Dates</th>
-      <th scope="col" colspan="4">Stocks</th>
+        <th scope="col" colspan="2">Dates</th>
+        <th scope="col" colspan="2">Ticker</th>
+        <th scope="col" colspan="2">Price</th>
+        <th scope="col" colspan="2">Phase</th>
+        <th scope="col" colspan="2">Link</th>
+        <th scope="col" colspan="2">Action</th>
     </tr>
     </thead>
     <tbody>
-    {% for dates, stocks in earnings.items %}
+    {% for dates, list in phases.items %}
     <tr>
         <td scope="col" colspan="2">{{ dates }}</td>
-        <td scope="row">
-        {% for stock in stocks %}
-            {{ stock }} <br>
+        {% for stock in list %}
+            {% for data in stock %}
+                <td scope="row" colspan="2">
+                {{ data }}
+                </td>
+            {% endfor %}
         {% endfor %}
-        </td>
     </tr>
     {% endfor %}
     </tbody>
