@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY_PORTFOLIO")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://tin-profile.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
