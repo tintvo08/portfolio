@@ -3,3 +3,5 @@ python-dotenv
 psycopg2-binary
 Pillow
 requests
+gunicorn
+whitenoise
