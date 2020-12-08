@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# Comment out this Database variable if running locally!!!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
