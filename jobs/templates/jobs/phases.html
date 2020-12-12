@@ -1,29 +1,28 @@
 <!doctype html>
 <html lang="en">
-    <div class="album py-5">
+    <div class="album py-10">
         <div class="container bg-dark">
             <h1 class="text-white text-center"> PHASES </h1>
             <table class="table table-bordered table-dark">
                 <thead>
-                    <tr>
-                        <th scope="col" colspan="2">Dates</th>
-                        <th scope="col" colspan="2">Ticker</th>
-                        <th scope="col" colspan="2">Price</th>
-                        <th scope="col" colspan="2">Phase</th>
-                        <th scope="col" colspan="2">Link</th>
-                        <th scope="col" colspan="2">Action</th>
+                    <tr class="d-flex">
+                        <th class="col-1">Dates</th>
+                        <th class="col-1" >Ticker</th>
+                        <th class="col-1" >Price</th>
+                        <th class="col-1" >Phase</th>
+                        <th class="col-1" >Raw Dates</th>
+                        <th class="col-1" >Link</th>
+                        <th class="col-1" >Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for dates, list in phases.items %}
-                    <tr>
+                    <tr class="d-flex">
                         {% for stock in list %}
-                        <tr>
-                            <td scope="col" colspan="2">{{ dates }}</td>
+                        <tr class="d-flex">
+                            <td class="col-1">{{ dates }}</td>
                             {% for data in stock %}
-                                <td colspan="2">
-                                    {{ data }}
-                                </td>
+                                <td class="col-1">{{ data }}</td>
                             {% endfor %}
                         </tr>
                         {% endfor %}
