@@ -6,13 +6,12 @@
             <table class="table table-bordered table-dark">
                 <thead>
                     <tr class="d-flex">
-                        <th class="col-1">Dates</th>
+                        <th class="col-2">Dates</th>
                         <th class="col-1" >Ticker</th>
                         <th class="col-1" >Price</th>
-                        <th class="col-1" >Phase</th>
-                        <th class="col-1" >Raw Dates</th>
-                        <th class="col-1" >Link</th>
-                        <th class="col-1" >Action</th>
+                        <th class="col-2" >Phase</th>
+                        <th class="col-2" >Raw Dates</th>
+                        <th class="col-2" >Trials</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,13 +19,12 @@
                     <tr class="d-flex">
                         {% for stock in list %}
                         <tr class="d-flex">
-                            <td class="col-1">{{ dates }}</td>
+                            <td class="col-2">{{ dates }}</td>
                             <td class="col-1">{{ stock.0 }}</td>
                             <td class="col-1">{{ stock.1 }}</td>
-                            <td class="col-1">{{ stock.2 }}</td>
-                            <td class="col-1">{{ stock.3 }}</td>
-                            <td class="col-1">{{ stock.4 }}</td>
-                            <td class="col-1">{{ stock.5 }}</td>
+                            <td class="col-2">{{ stock.2 }}</td>
+                            <td class="col-2">{{ stock.3 }}</td>
+                            <td class="col-2"><a href="{{ stock.4 }}">{{ stock.5 }}</a></td>
                         </tr>
                         {% endfor %}
                     </tr>
