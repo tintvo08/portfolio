@@ -1,34 +1,36 @@
 <!doctype html>
 <html lang="en">
-    <div class="album py-3">
-    <div class="container bg-dark">
-    <h1 class="text-white text-center"> PHASES </h1>
-    <table class="table table-bordered table-dark">
-    <thead>
-    <tr>
-        <th scope="col" colspan="2">Dates</th>
-        <th scope="col" colspan="2">Ticker</th>
-        <th scope="col" colspan="2">Price</th>
-        <th scope="col" colspan="2">Phase</th>
-        <th scope="col" colspan="2">Link</th>
-        <th scope="col" colspan="2">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for dates, list in phases.items %}
-    <tr>
-        <td scope="col" colspan="2">{{ dates }}</td>
-        {% for stock in list %}
-            {% for data in stock %}
-                <td scope="row" colspan="2">
-                {{ data }}
-                </td>
-            {% endfor %}
-        {% endfor %}
-    </tr>
-    {% endfor %}
-    </tbody>
-    </table>
-    </div>
+    <div class="album py-10">
+        <div class="container bg-dark">
+            <h1 class="text-white text-center"> PHASES </h1>
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-2">Dates</th>
+                        <th class="col-1" >Ticker</th>
+                        <th class="col-1" >Price</th>
+                        <th class="col-2" >Phase</th>
+                        <th class="col-3" >Raw Dates</th>
+                        <th class="col-3" >Trials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dates, list in phases.items %}
+                    <tr class="d-flex">
+                        {% for stock in list %}
+                        <tr class="d-flex">
+                            <td class="col-2">{{ dates }}</td>
+                            <td class="col-1">{{ stock.0 }}</td>
+                            <td class="col-1">{{ stock.1 }}</td>
+                            <td class="col-2">{{ stock.2 }}</td>
+                            <td class="col-3">{{ stock.3 }}</td>
+                            <td class="col-3"><a href="{{ stock.4 }}">{{ stock.5 }}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </html>
