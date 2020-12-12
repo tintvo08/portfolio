@@ -21,9 +21,12 @@
                         {% for stock in list %}
                         <tr class="d-flex">
                             <td class="col-1">{{ dates }}</td>
-                            {% for data in stock %}
-                                <td class="col-1">{{ data }}</td>
-                            {% endfor %}
+                            <td class="col-1">{{ stock.0 }}</td>
+                            <td class="col-1">{{ stock.1 }}</td>
+                            <td class="col-1">{{ stock.2 }}</td>
+                            <td class="col-1">{{ stock.3 }}</td>
+                            <td class="col-1">{{ stock.4 }}</td>
+                            <td class="col-1">{{ stock.5 }}</td>
                         </tr>
                         {% endfor %}
                     </tr>

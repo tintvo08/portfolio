@@ -78,16 +78,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # Comment out this Database variable if running locally!!!
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PW'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': '5432'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio',
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PW'),
+#         'HOST': os.getenv('DB_HOST', 'localhost'),
+#         'PORT': '5432'
+#     }
+# }
 
 
 # Password validation
