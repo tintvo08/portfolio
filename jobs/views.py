@@ -12,14 +12,19 @@ def home(request):
 
 def earnings(request):
     upcoming = _get_upcoming()
-    earnings = upcoming['earnings']
-    return render(request, 'jobs/earnings.html', {'earnings': earnings})
+    stock_earnings = upcoming['earnings']
+    return render(request, 'jobs/earnings.html', {'earnings': stock_earnings})
 
 
 def phases(request):
     upcoming = _get_upcoming()
-    phases = upcoming['phases']
-    return render(request, 'jobs/phases.html', {'phases': phases})
+    pharm_phases = upcoming['phases']
+    return render(request, 'jobs/phases.html', {'phases': pharm_phases})
+
+
+def search(request):
+    key = {'key': os.getenv("TRADE_API_KEY")}
+    return render(request, 'jobs/search.html', {'key': key})
 
 
 def aboutme(request):
@@ -31,7 +36,5 @@ def _get_upcoming():
     resp = requests.get('https://t-trade-api.herokuapp.com/t_trade/upcoming', headers=headers)
     data = resp.json()
     return data
-
-
 
 

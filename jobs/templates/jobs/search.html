@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <div class="album py-3">
+        <div class="container bg-dark">
+            <h1 class="text-white text-center py-3"> Search For Stock Info </h1>
+            <nav class="navbar navbar-light text-center">
+            <form class="form-inline md-form mx-lg-auto mb-4 pb-3" id="contact-form">
+              <input class="form-control mr-sm-2" type="text" placeholder="Ticker (ex: tsla)" id="input-ticker">
+              <button class="btn aqua-gradient btn-rounded btn-sm my-0 text-white bg-primary" type="submit" value="Search">Search</button>
+            </form>
+            </nav>
+            <script>
+            $(document).ready(function() {
+                $("#contact-form").submit(function(event) {
+                    event.preventDefault();
+                    var param = $('#input-ticker').val();
+                    $.ajax({
+                        url: "https://t-trade-api.herokuapp.com/t_trade/info/" + param,
+                        headers: {"api-key": "{{ key.key }}"},
+                        type: "GET",
+                        data: new FormData(this),
+                        dataType : 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        processData: false,
+                        success : function(data){console.log(data);},
+                        error: function(){alert('Error!')}
+                    })
+                });
+            });
+            </script>
+        </div>
+    </div>
+</html>

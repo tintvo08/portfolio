@@ -27,6 +27,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 50px">
                     <a class="nav-link master_link text-primary pl-2" href="#" id="earnings_link">Earnings</a>
                     <a class="nav-link master_link text-primary pl-2" href="#" id="phases_link">Phases</a>
+                    <a class="nav-link master_link text-primary pl-2" href="#" id="search_link">Search</a>
                     </div>
                 </div>
                 <a class="nav-link master_link px-3" href="#" id="aboutme_link">About Me</a>
@@ -53,6 +54,8 @@
                         $('#body').load('/earnings');
                     } else if (event.target.id === 'phases_link') {
                         $('#body').load('/phases');
+                    } else if (event.target.id === 'search_link') {
+                        $('#body').load('/search');
                     } else {
                         $('#body').load('/aboutme');
                     }
