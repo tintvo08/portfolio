@@ -64,7 +64,10 @@
                             $('.news').append(news);
                             $('.tweets').append(tweets);
                         },
-                        error: function(){alert('Error!')}
+                        error: function(xhr, status, error) {
+                          var err = eval("(" + xhr.responseText + ")");
+                          alert(err.Message);
+                        }
                     })
                 });
             });
