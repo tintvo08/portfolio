@@ -9,6 +9,7 @@
               <button class="btn aqua-gradient btn-rounded btn-sm my-0 text-white bg-primary" type="submit" value="Search">Search</button>
             </form>
             </nav>
+            <p id="testing"></p>
             <script>
             $(document).ready(function() {
                 $("#contact-form").submit(function(event) {
@@ -18,11 +19,11 @@
                         url: "https://t-trade-api.herokuapp.com/t_trade/info/" + param,
                         headers: {"api-key": "{{ key.key }}"},
                         type: "GET",
-                        data: new FormData(this),
-                        dataType : 'json',
                         contentType: 'application/json; charset=utf-8',
-                        processData: false,
-                        success : function(data){console.log(data);},
+                        processData: true,
+                        success : function(data){
+                            console.log(data);
+                        },
                         error: function(){alert('Error!')}
                     })
                 });
