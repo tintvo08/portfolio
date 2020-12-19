@@ -9,8 +9,8 @@
               <button class="btn aqua-gradient btn-rounded btn-sm my-0 text-white bg-primary" type="submit" value="Search">Search</button>
             </form>
             </nav>
-            <div class="news text-center"></div>
-            <div class="tweets text-center"></div>
+            <div class="news"></div>
+            <div class="tweets"></div>
             <script>
             $(document).ready(function() {
                 $("#contact-form").submit(function(event) {
@@ -26,18 +26,20 @@
                             news = data.news;
                             var news_date_html =''
                             var tweets_date_html = '';
-                            for (const [ date, data_arr] of Object.entries(news)){
-                                var news_data_html = '';
-                                var tweets_data_html = '';
-                                data_arr.forEach(function (info){
+                            var news_dates = Object.keys(news);
+                            for (var i=news_dates.length-1; i>news_dates.length-4; i--){
+                                var date = news_dates[i];
+                                var news_data = news[date];
+                                var news_data_html = ''
+                                news_data.forEach(function (info){
                                     var title = info.title;
                                     var link = info.link;
                                     news_data_html += '<a class=\'text-warning\' href=\'' + link + '\'>' + title + '</a><br/><br/>';
                                 });
                                 news_date_html += '<p class=\'text-info\'>' + date + '</p>' + news_data_html + '<br/>';
                             }
-                            var news = '<h1 class=\'text-white\'> News </h1><hr>' + news_date_html + '<br/><br/>'
-                            var tweets = '<h1 class=\'text-white\'> Tweets </h1><hr>' + '<br/><br/>'
+                            var news = '<h1 class=\'text-white text-center\'> News </h1><hr>' + news_date_html + '<br/><br/>'
+                            var tweets = '<h1 class=\'text-white text-center\'> Tweets </h1><hr>' + '<br/><br/>'
 
                             $('.news').append(news);
                             $('.tweets').append(tweets);
