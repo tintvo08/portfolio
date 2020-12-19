@@ -27,6 +27,9 @@
                             var news_date_html =''
                             var news_dates = Object.keys(news);
                             for (var i=news_dates.length-1; i>news_dates.length-4; i--){
+                                if (i<0){
+                                    break;
+                                }
                                 var news_date = news_dates[i];
                                 var news_data = news[news_date];
                                 var news_data_html = ''
