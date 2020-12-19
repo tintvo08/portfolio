@@ -26,6 +26,9 @@
                             news = data.news;
                             var news_date_html =''
                             var news_dates = Object.keys(news);
+                            tweets = data.tweets;
+                            var tweets_date_html = '';
+                            var tweet_dates = Object.keys(tweets);
                             for (var i=news_dates.length-1; i>news_dates.length-4; i--){
                                 if (i<0){
                                     break;
@@ -33,23 +36,18 @@
                                 var news_date = news_dates[i];
                                 var news_data = news[news_date];
                                 var news_data_html = ''
+                                var tweet_date = tweet_dates[i];
+                                var tweets_data = tweets[tweet_date];
+                                var tweets_data_html = '';
+                                var counter = 0;
+
                                 news_data.forEach(function (info){
                                     var title = info.title;
                                     var link = info.link;
                                     news_data_html += '<a class=\'text-warning\' href=\'' + link + '\'>' + title + '</a><br/><br/>';
                                 });
                                 news_date_html += '<p class=\'text-info\'>' + news_date + '</p>' + news_data_html + '<br/>';
-                            }
-                            var news = '<h1 class=\'text-white text-center\'> News </h1><hr>' + news_date_html + '<br/><br/>'
 
-                            tweets = data.tweets;
-                            var tweets_date_html = '';
-                            var tweet_dates = Object.keys(tweets);
-                            for (var j=tweet_dates.length-1; j>tweet_dates.length-4; j--){
-                                var tweet_date = tweet_dates[j];
-                                var tweets_data = tweets[tweet_date];
-                                var tweets_data_html = '';
-                                var counter = 0;
                                 for (const [user, value] of Object.entries(tweets_data)){
                                     tweets_data_html += '<p class=\'text-success\'>' + user + ': ' + '<span class=\'text-warning\'>' + value + '</span></p>';
                                     counter += 1;
@@ -59,15 +57,12 @@
                                 }
                                 tweets_date_html += '<p class=\'text-info\'>' + tweet_date + '</p>' + tweets_data_html + '<br/>';
                             }
+                            var news = '<h1 class=\'text-white text-center\'> News </h1><hr>' + news_date_html + '<br/><br/>'
                             var tweets = '<h1 class=\'text-white text-center\'> Tweets </h1><hr>' + tweets_date_html + '<br/><br/>'
-
                             $('.news').append(news);
                             $('.tweets').append(tweets);
                         },
-                        error: function(xhr, status, error) {
-                          var err = eval("(" + xhr.responseText + ")");
-                          alert(err.Message);
-                        }
+                        error: function(){alert('Error!')}
                     })
                 });
             });
