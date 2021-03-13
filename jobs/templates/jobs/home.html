@@ -30,7 +30,6 @@
                     <a class="nav-link master_link text-primary pl-2" href="#" id="search_link">Search</a>
                     </div>
                 </div>
-                <a class="nav-link master_link px-3" href="#" id="aboutme_link">About Me</a>
             </div>
           </div>
         </nav>
@@ -46,7 +45,14 @@
       </section>
 
       <div class="main_body pb-5">
-        <div class="container bg-dark" id="body">
+        <div class="container" id="body">
+
+            <script>
+             $(document).ready(function(){
+                $('#body').load("/aboutme");
+             });
+            </script>
+
             <script>
             $(document).ready(function() {
                 $(".nav-link").click(function(event) {
